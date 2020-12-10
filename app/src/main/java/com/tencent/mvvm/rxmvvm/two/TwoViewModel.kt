@@ -34,7 +34,7 @@ class TwoViewModel(val repo: TwoRepository) : BaseViewModel() {
 
     init {
         getLocal()
-        getRemote(page)
+//        getRemote(page)
     }
 
 

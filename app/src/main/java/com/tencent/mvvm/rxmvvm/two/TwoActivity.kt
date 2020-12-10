@@ -24,7 +24,9 @@ class TwoActivity : BaseActivity() {
         next.setOnClickListener {
             twoViewModel.page = twoViewModel.page + 1
         }
-
+        top.setOnClickListener {
+            twoViewModel.page =1
+        }
     }
 
 
@@ -38,10 +40,10 @@ class TwoActivity : BaseActivity() {
 
         state.allData?.let {
             if (mRecyclerView.adapter == null){
-                mRecyclerView.adapter = ListAdapter(this,state.allData)
+                mRecyclerView.adapter = ListAdapter(this,it)
             }else{
                 if (state.startIndex==0){
-                    (mRecyclerView.adapter as ListAdapter).setNewData(it)
+                    mRecyclerView.adapter = ListAdapter(this,it)
                 }else{
                     (mRecyclerView.adapter as ListAdapter).notifyDataSetChanged()
                 }
