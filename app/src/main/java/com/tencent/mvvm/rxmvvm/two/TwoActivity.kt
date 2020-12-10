@@ -43,8 +43,10 @@ class TwoActivity : BaseActivity() {
                 mRecyclerView.adapter = ListAdapter(this,it)
             }else{
                 if (state.startIndex==0){
+                    //这里表示用户重新刷新，所以重新设置adapter
                     mRecyclerView.adapter = ListAdapter(this,it)
                 }else{
+                    //数据源在内部已经发生了改变，这里只需要刷新即可
                     (mRecyclerView.adapter as ListAdapter).notifyDataSetChanged()
                 }
             }
